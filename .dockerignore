@@ -1,0 +1,8 @@
+data
+backups
+.env
+.gh-header
+.gh-token
+.git
+*.log
+node_modules

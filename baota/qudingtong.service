@@ -1,0 +1,25 @@
+[Unit]
+Description=QudingTong Enterprise Channel Order System
+After=network.target
+
+[Service]
+Type=simple
+User=www
+Group=www
+WorkingDirectory=/www/wwwroot/qudingtong
+Environment=PORT=8283
+Environment=WEB_CONCURRENCY=4
+Environment=NODE_ENV=production
+Environment=DATA_DIR=/www/wwwroot/qudingtong/data
+Environment=QDT_DB_DIR=/www/wwwroot/qudingtong/data
+Environment=QDT_SECURITY_DB_DIR=/www/wwwroot/qudingtong/data/security
+Environment=QDT_BACKUP_DIR=/www/wwwroot/qudingtong/backups
+EnvironmentFile=/www/wwwroot/qudingtong/.env
+ExecStart=/usr/bin/node /www/wwwroot/qudingtong/cluster.mjs
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
