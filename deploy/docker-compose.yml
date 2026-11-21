@@ -1,6 +1,6 @@
 services:
   qudingtong:
-    image: xiaoluya/qudingtong:1.3.2
+    image: xiaoluya/qudingtong:1.3.5
     container_name: qudingtong
     user: "${QDT_UID:-1000}:${QDT_GID:-1000}"
     restart: always
