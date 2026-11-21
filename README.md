@@ -1,7 +1,5 @@
 # 渠订通 · QudingTong
 
-![渠订通](public/logo.svg)
-
 > **批发订货 · 渠道报价 · 进销存 · 账单财务 · 实时数据大屏 · AI 经营分析 · 打印出单 一站式**
 
 ![版本](https://img.shields.io/badge/version-1.3.5-blue) ![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange) ![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green) ![端口](https://img.shields.io/badge/port-8282-lightgrey)
