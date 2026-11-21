@@ -61,5 +61,64 @@ window.pageAdminBills=async function(){const j=await api('/api/admin/bills'),row
 // 系统设置保存后同步 AI 报告封面
 const origSettingsSave=W().$('#set_save_final')?.onclick;
 
+// 最终覆盖：退出登录与授权状态提示（事件委托，避免 renderShell 重绘后 onclick 丢失）
+if(!window.__qdtAuthUi){
+  window.__qdtAuthUi=true;
+  window.qdtLicenseQuick=async function(){
+    try{
+      const j=await api('/api/admin/license/status'),active=!!(j&&j.active),text=active?'授权成功 · 统一永久授权':(j&&j.reason?'授权状态：'+j.reason:'当前未激活或授权已吊销');
+      toast(text,active?'ok':'err');
+      const b=W().$('#qdt_license_ok');if(b){b.textContent=active?'✓ 已授权':'未激活';b.className='badge '+(active?'ok':'warn');b.title=text}
+    }catch(e){toast(e&&e.message||'授权状态读取失败','err')}
+  };
+  window.__qdtAuthLicenseRefresh=async()=>{try{const j=await api('/api/admin/license/status'),active=!!(j&&j.active),text=active?'授权成功 · 统一永久授权':('授权状态：'+String(j&&j.reason||'未激活'));const b=W().$('#qdt_license_ok');if(b){b.textContent=active?'✓ 已授权':'未激活';b.className='badge '+(active?'ok':'warn');b.title=text;return text}return text}catch(e){const b=W().$('#qdt_license_ok');if(b){b.textContent='授权状态未知';b.className='badge warn';b.title=String(e&&e.message||'授权状态读取失败')}return String(e&&e.message||'授权状态读取失败')}};
+  window.qdtLicenseQuick=async function(){const text=await window.__qdtAuthLicenseRefresh();toast(text,/授权成功/.test(text)?'ok':'err')};
+  document.addEventListener('click',function(e){
+    const el=e&&e.target&&e.target.closest?e.target.closest('#logout,#qdt_license_top,#qdt_license_ok'):null;if(!el)return;
+    if(el.id==='logout'){
+      e.preventDefault();e.stopImmediatePropagation();
+      (async()=>{try{await api('/api/auth/logout',{method:'POST',body:'{}'})}catch{};
+        try{if(W().A.evt)W().A.evt.close();if(W().A.poll)clearInterval(W().A.poll)}catch{}
+        W().A.user=null;W().A.csrf='';W().A.route='home';document.body.classList.remove('qdt-screen-mode');
+        try{sessionStorage.removeItem('qdt_login_username')}catch{}
+        toast('已退出登录','ok');
+        if(typeof W().renderLogin==='function')W().renderLogin();else location.reload();
+      })();return;
+    }
+    if(el.id==='qdt_license_top'||el.id==='qdt_license_ok'){
+      if(el.id==='qdt_license_top'){e.preventDefault();e.stopImmediatePropagation();window.qdtLicenseQuick();return}
+      e.preventDefault();e.stopImmediatePropagation();window.qdtLicenseQuick();
+    }
+  },true);
+  const oldShellAuth=W().renderShell;
+  W().renderShell=function(){
+    const out=oldShellAuth&&oldShellAuth.apply(this,arguments);
+    try{
+      const top=W().$('.topbar');
+      if(top&&W().A&&W().A.user&&W().A.user.role==='admin'){
+        let b=W().$('#qdt_license_ok');
+        if(!b){b=document.createElement('span');b.id='qdt_license_ok';b.className='badge ok';b.style.marginLeft='6px';b.style.cursor='pointer';b.textContent='授权检查中…';top.appendChild(b)}
+        window.__qdtAuthLicenseRefresh();
+      }
+    }catch{}
+    return out;
+  };
+}
+
+// 最终授权状态显示：覆盖弹窗标题并强制刷新右上角徽章
+if(!window.__qdtAuthBadgeFinal){
+  window.__qdtAuthBadgeFinal=true;
+  window.qdtApplyLicenseBadge=async()=>{
+    let j={};try{j=await api('/api/admin/license/status')}catch{}
+    const active=!!(j&&j.active),label=active?'✓ 已授权':'未激活',title=active?'授权成功 · 统一永久授权':('授权状态：'+String(j&&j.reason||'未激活'));
+    const b=W().$('#qdt_license_ok');if(b){b.textContent=label;b.className='badge '+(active?'ok':'warn');b.title=title}
+    [...document.querySelectorAll('.modal-mask.qdt-license-modal .modal h2')].forEach(h=>{h.textContent=active?'授权信息 · 授权成功':'授权信息 · 未激活'});
+    return title;
+  };
+  document.addEventListener('click',e=>{const el=e&&e.target&&e.target.closest?e.target.closest('#qdt_license_top,#qdt_license_ok'):null;if(!el)return;setTimeout(()=>window.qdtApplyLicenseBadge(),60);setTimeout(()=>window.qdtApplyLicenseBadge(),500)},true);
+  const oldShell=W().renderShell;W().renderShell=function(){const out=oldShell&&oldShell.apply(this,arguments);setTimeout(()=>window.qdtApplyLicenseBadge(),30);setTimeout(()=>window.qdtApplyLicenseBadge(),500);return out};
+  new MutationObserver(()=>{const h=document.querySelector('.modal-mask.qdt-license-modal .modal h2');if(h&&!/授权成功|未激活/.test(h.textContent))window.qdtApplyLicenseBadge()}).observe(document.body,{childList:true,subtree:true});
+}
+
 if(location.pathname.startsWith('/public/ai/share/')){document.addEventListener('DOMContentLoaded',async()=>{try{const j=await fetch(location.pathname+'?format=json',{headers:{Accept:'application/json'}}).then(r=>r.json());if(!j.ok)throw new Error(j.reason||'分享不可用');const d=j.report.data,app=(W().$('#app')||document.getElementById('app')||document.body);app.innerHTML='<div class="ai-share-public"><div class="toolbar"><h2>'+esc(j.company)+' · AI 经营报告只读分享</h2><span class="spacer"></span><span class="badge ok">只读</span></div>'+reportHtml(d,j.report.summary,j.report)+'</div>';if(W().drawAllTables)W().drawAllTables()}catch(e){document.body.innerHTML='<div class="ai-share-public"><div class="card"><h2>分享不可用</h2><p>'+esc(e.message)+'</p></div></div>'}})}
 })();
