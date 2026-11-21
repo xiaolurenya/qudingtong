@@ -2,11 +2,11 @@
   "version": "1.3.5",
   "image": "xiaoluya/qudingtong:1.3.5",
   "latest": "xiaoluya/qudingtong:latest",
-  "digest": "sha256:9ca6cdcf792a8ff8c4647067b2c68c4fbf3f1d9b516a89bc019eda4ab71aa739",
+  "digest": "sha256:628d16962ccd916c267c165cab96a7acb3c12d615a91d332ac52a79cc15c8cfa",
   "port": 8282,
   "security_level": "enterprise",
   "publicRepo": "https://github.com/xiaolurenya/qudingtong",
-  "generatedAt": "2026-11-21T05:26:23.114Z",
+  "generatedAt": "2026-11-21T06:07:54.292Z",
   "credentialPolicy": "首次启动自行设置",
-  "note": "重写项目介绍与新增功能截图；账单明细全局委托修复；实时大屏、AI经营分析、系统设置同步与动态路由守卫；已部署 xs.li0580.top。"
+  "note": "FPK 修复 admin123 密码同步与登录锁清理；实时大屏、AI经营分析、账单明细与新 Logo；已部署 xs.li0580.top。"
 }
