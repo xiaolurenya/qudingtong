@@ -1,11 +1,11 @@
 {
-  "version": "1.3.4",
-  "image": "xiaoluya/qudingtong:1.3.4",
+  "version": "1.3.5",
+  "image": "xiaoluya/qudingtong:1.3.5",
   "latest": "xiaoluya/qudingtong:latest",
-  "digest": "sha256:b95f7023b8b0c001d198a213620598315269945d1e39c4c7535c9a6356f0b600",
+  "digest": "",
   "port": 8282,
   "security_level": "enterprise",
   "publicRepo": "https://github.com/xiaolurenya/qudingtong",
-  "generatedAt": "2026-11-20T00:24:39.098Z",
+  "generatedAt": "2026-11-21T03:03:18.465Z",
   "credentialPolicy": "首次启动自行设置"
 }
