@@ -2,11 +2,11 @@
   "version": "1.3.5",
   "image": "xiaoluya/qudingtong:1.3.5",
   "latest": "xiaoluya/qudingtong:latest",
-  "digest": "sha256:8ae08fb23f54b5535ebd03abec8a17b70adf085cba649ef0598c506b97ad50a6",
+  "digest": "sha256:b1521851fb4c856b2a909f8c976408a1a796c0f307d53ea1afb551676daa1444",
   "port": 8282,
   "security_level": "enterprise",
   "publicRepo": "https://github.com/xiaolurenya/qudingtong",
-  "generatedAt": "2026-11-21T04:03:25.401Z",
+  "generatedAt": "2026-11-21T04:08:41.499Z",
   "credentialPolicy": "首次启动自行设置",
-  "note": "实时数据大屏深色视觉修复与全量历史口径；系统设置统一保存校验；已部署 xs.li0580.top。"
+  "note": "实时数据大屏整页深色模式、菜单置于总览之上，系统设置改名同步品牌；已部署 xs.li0580.top。"
 }
