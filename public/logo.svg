@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="渠订通">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f3b8f"/><stop offset=".52" stop-color="#2563eb"/><stop offset="1" stop-color="#06b6d4"/></linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".28"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient>
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%"><feDropShadow dx="0" dy="7" stdDeviation="8" flood-color="#061225" flood-opacity=".25"/></filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <rect x="8" y="8" width="112" height="112" rx="30" fill="url(#bg)"/>
+    <path d="M18 18h92v28c0 34-25 58-58 64-8 1-16 1-24 0V18z" fill="url(#shine)"/>
+    <circle cx="40" cy="39" r="8" fill="#fff" opacity=".95"/><circle cx="88" cy="39" r="8" fill="#fff" opacity=".95"/><circle cx="64" cy="86" r="8" fill="#fff" opacity=".95"/>
+    <path d="M40 39h48M40 39l24 47M88 39L64 86" stroke="#bfe9ff" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+    <path d="M49 63h30l-8-8m8 8-8 8" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M86 91a22 22 0 1 0 0-44" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+    <path d="M84 91l13 9 4-16" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
