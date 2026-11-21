@@ -2,11 +2,11 @@
   "version": "1.3.5",
   "image": "xiaoluya/qudingtong:1.3.5",
   "latest": "xiaoluya/qudingtong:latest",
-  "digest": "sha256:3fb56a69fa5ecc320296f226a237a35b2802a7905026ff407fabc472dee0b9a2",
+  "digest": "sha256:db9b372b066009554ce47acb6d5997af6a16d8a7a8ab9eae36110fb9db645b5f",
   "port": 8282,
   "security_level": "enterprise",
   "publicRepo": "https://github.com/xiaolurenya/qudingtong",
-  "generatedAt": "2026-11-21T04:25:17.906Z",
+  "generatedAt": "2026-11-21T04:38:16.050Z",
   "credentialPolicy": "首次启动自行设置",
-  "note": "账单财务详情弹窗、AI报告公司名同步站点设置、实时大屏铺满与圆角修正；已部署 xs.li0580.top。"
+  "note": "动态路由守卫与延迟重试，修复偶发 pageSalesStats undefined / ai_screen 标题问题；已部署 xs.li0580.top。"
 }
