@@ -1,7 +1,4 @@
 # 渠订通
-
-![渠订通](public/logo.svg)
-
 **批发订货 · 渠道报价 · 进销存 · 账单财务 · 实时数据大屏 · AI 经营分析 · 打印出单 一站式**
 
 ![版本](https://img.shields.io/badge/version-1.3.5-blue)
