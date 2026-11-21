@@ -4,7 +4,7 @@
 
 **批发订货 · 渠道报价 · 进销存 · 账单财务 · 打印出单 一站式**
 
-![版本](https://img.shields.io/badge/version-1.3.4-blue)
+![版本](https://img.shields.io/badge/version-1.3.5-blue)
 ![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange)
 ![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green)
 ![端口](https://img.shields.io/badge/port-8282-lightgrey)
@@ -87,9 +87,9 @@ docker compose up -d
 ## 镜像与版本
 
 ```text
-xiaoluya/qudingtong:1.3.4
+xiaoluya/qudingtong:1.3.5
 xiaoluya/qudingtong:latest
-sha256:b95f7023b8b0c001d198a213620598315269945d1e39c4c7535c9a6356f0b600
+（digest 以公开仓 version.json 为准）
 ```
 
 ## 初始账号
@@ -116,4 +116,4 @@ sha256:b95f7023b8b0c001d198a213620598315269945d1e39c4c7535c9a6356f0b600
 
 ---
 
-文档版本：1.3.4 · 项目介绍优化版。
+文档版本：1.3.5 · 新增 AI 经营分析、真实业务数据聚合、报告快照、只读分享链接、AI 问答与导出打印。
