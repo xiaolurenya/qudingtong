@@ -1,0 +1,26 @@
+services:
+  qudingtong:
+    image: xiaoluya/qudingtong:1.3.2
+    container_name: qudingtong
+    user: "${QDT_UID:-1000}:${QDT_GID:-1000}"
+    restart: always
+    ports:
+      - "8282:8282"
+    environment:
+      PORT: "8282"
+      TZ: "Asia/Shanghai"
+      NODE_ENV: "production"
+      WEB_CONCURRENCY: "4"
+      DATA_DIR: "/app/data"
+      QDT_DB_DIR: "/app/data"
+      QDT_SECURITY_DB_DIR: "/app/data/security"
+      QDT_BACKUP_DIR: "/app/backups"
+      BOOTSTRAP_ADMIN_USER: "admin"
+      BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:-admin123}"
+      SESSION_SECRET: "${SESSION_SECRET:-}"
+      QDT_BACKUP_PEPPER: "${QDT_BACKUP_PEPPER:-}"
+      QDT_AGENT_TOKEN: "${QDT_AGENT_TOKEN:-}"
+      QDT_SECURE_COOKIE: "0"
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
