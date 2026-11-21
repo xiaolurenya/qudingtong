@@ -1,10 +1,10 @@
-# 渠订通
-**批发订货 · 渠道报价 · 进销存 · 账单财务 · 实时数据大屏 · AI 经营分析 · 打印出单 一站式**
+# 渠订通 · QudingTong
 
-![版本](https://img.shields.io/badge/version-1.3.5-blue)
-![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange)
-![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green)
-![端口](https://img.shields.io/badge/port-8282-lightgrey)
+![渠订通](public/logo.svg)
+
+> **批发订货 · 渠道报价 · 进销存 · 账单财务 · 实时数据大屏 · AI 经营分析 · 打印出单 一站式**
+
+![版本](https://img.shields.io/badge/version-1.3.5-blue) ![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange) ![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green) ![端口](https://img.shields.io/badge/port-8282-lightgrey)
 
 渠订通是一套面向**批发商、渠道商、门店和售后网点**的自托管业务系统。它把客户报价、购物车下单、后台开单、库存采购、退货审核、账单财务、往来明细、打印出单、实时经营大屏、AI 经营分析和数据安全放进同一套系统里，用私有部署和统一永久授权替代分散的 Excel、微信群和手工对账。
 
@@ -12,105 +12,27 @@
 
 ---
 
-## v1.3.5 新增亮点
-
-### 1. 实时数据大屏：登录后默认第一屏
-
-- 登录后默认进入「📺 实时数据大屏」，菜单位于「总览」与「AI 经营分析」之前；
-- 全页深色大屏，四角圆弧，铺满内容区，不再出现白底、黑边和下拉白框；
-- 顶部展示年度营收、本月销售额、累计营收、今日开单、今日收入 / 支出、风险 / 可用率；
-- 中间展示客户分布、全年营收 / 回款趋势、实时告警与业务动态；
-- 底部展示回款达成、库存健康、经营健康、打印响应，以及全链路实时动态；
-- 实时动态来自真实业务库：开单、退货、商品库存、收入、支出、打印、库存流水和审计事件；
-- 采用全量历史 + 当日实时双口径，按 SSE / revision 自动刷新，不使用演示数据。
-
-![实时数据大屏](docs/screenshots/live-screen.png)
-
-### 2. AI 经营分析：真实业务数据生成报告
-
-- 默认统计**本月 1 号至当前日期**，可手动切换日期范围；
-- 聚合订单、退货、账单、收付款、库存采购、供应商、资金、打印和审计等真实业务表；
-- 一键生成经营报告快照，支持报告历史、重新打开历史快照、DOC / CSV 导出、打印日志；
-- AI 智能助手支持下拉选择诊断问题：经营汇总、回款风险、库存补货、采购应付、退货与打印风险；
-- 报告公司名跟随系统设置中的站点名称，改名后侧栏、页面标题、AI 报告封面同步生效；
-- 支持创建只读分享链接：token 哈希、有效期、撤销、访问次数和访问审计。
-
-![AI 经营分析](docs/screenshots/ai-report.png)
-
-### 3. 账单财务：点击账单号即可查看明细
-
-- 账单列表支持点击账单号或「明细」按钮查看完整详情；
-- 订单账单显示关联订单信息和商品明细表；
-- 退货账单显示关联退货单信息和退货商品明细；
-- 手工应收 / 资金往来账单显示账单说明和收款 / 冲抵记录；
-- 详情弹窗包含总额、已付、未结、状态、到期日、创建时间、商品明细和收款记录；
-- 收款按钮仍保留，收款后自动刷新账单余额与状态。
-
-![账单财务明细](docs/screenshots/bill-detail.png)
-
-### 4. 前台报价下单，后台实时经营
-
-- 客户按**零售 / 渠道 / 核心**等级看到不同价格；商品详情、库存、阶梯价、买赠规则实时同步；
-- 前台支持搜索、分类 / 品牌筛选、加入购物车、立即下单、我的订单、我的账单、退换货与收款信息；
-- 后台支持手动开单、草稿、金额手动修改、打印队列、订单明细、销售统计与待出单状态。
-
-![商品库存与等级价格](docs/screenshots/products.png)
-
-### 5. 进销存、财务和往来明细一页打通
-
-- 商品库存、分类品牌、价格规则、序列号、盘点、报损报溢、借出返回、采购入库、供应商应付；
-- 账单财务、应收应付、对账财务、收支流水、资金来往、账期提醒；
-- 「往来明细」按客户 / 公司 / 零售客户 / 供应商 / 日期 / 单号 / 类型汇总订单、退货、账单和收付款，适合月底对账；
-- 订单管理和打印队列支持明细查看、状态更新与打印出单。
-
-![订单管理与打印队列](docs/screenshots/orders.png)
-
-### 6. 打印出单、权限安全与稳定性
-
-- 连续纸送货单、叠加预印刷表格、完整表格线、打印代理、Windows 打印助手；
-- 员工权限按权限点配置，客户首次登录强制改密，账期超期可自动锁定；
-- Node.js 24 + `node:sqlite` + 原生 SPA，零 npm 运行时依赖；WAL / FULL / 事务重试 / cluster 多进程；
-- 独立安全库、CSRF、会话撤销、登录限流、接口限流、审计哈希链、加密备份、严格 CSP；
-- 前端路由增加动态解析与延迟重试，避免多版本脚本加载时序导致「页面函数未定义」；
-- 系统设置统一保存并回读校验，站点名称、副标题、页面标题和 AI 报告实时同步。
-
----
-
 ## 界面预览
 
-### 经营总览
+| 实时数据大屏 | AI 经营分析 |
+| --- | --- |
+| ![实时数据大屏](docs/screenshots/live-screen.png) | ![AI 经营分析](docs/screenshots/ai-report.png) |
 
-![经营总览](docs/screenshots/dashboard.png)
+| 经营总览 | 账单财务明细 |
+| --- | --- |
+| ![经营总览](docs/screenshots/dashboard.png) | ![账单财务明细](docs/screenshots/bill-detail.png) |
 
-### 商品库存与等级价格
-
-![商品库存](docs/screenshots/products.png)
-
-### 订单管理与打印队列
-
-![订单管理](docs/screenshots/orders.png)
-
-### 账单财务明细
-
-![账单财务](docs/screenshots/bill-detail.png)
-
-### AI 经营分析
-
-![AI 经营分析](docs/screenshots/ai-report.png)
-
-### 实时数据大屏
-
-![实时数据大屏](docs/screenshots/live-screen.png)
-
-> 以上预览均为 v1.3.5 实际界面；旧版截图仍保留在仓库中作为历史参考。
+| 商品库存与等级价格 | 订单管理与打印队列 |
+| --- | --- |
+| ![商品库存](docs/screenshots/products.png) | ![订单管理](docs/screenshots/orders.png) |
 
 ---
 
-## 功能矩阵
+## 核心功能
 
 | 模块 | 能力 |
 | --- | --- |
-| 实时经营 | 登录后默认大屏、实时开单 / 退货 / 商品 / 收支 / 打印 / 审计动态、全年趋势、风险进度 |
+| 实时经营 | 登录后默认大屏，实时开单 / 退货 / 商品 / 收支 / 打印 / 审计动态、全年趋势、风险进度 |
 | AI 经营分析 | 真实业务数据聚合、默认本月区间、报告快照、历史、DOC / CSV 导出、打印、只读分享、AI 问答 |
 | 前台客户 | 商品报价、分类品牌、购物车、订单、账单、退换货、收款信息、账号资料 |
 | 后台经营 | 总览、手动开单、订单管理、销售统计、商品库存、价格规则、打印队列 |
@@ -121,50 +43,132 @@
 
 ---
 
-## 快速部署
+## 镜像与版本
+
+- Docker Hub：<https://hub.docker.com/r/xiaoluya/qudingtong>
+- 固定版本：`xiaoluya/qudingtong:1.3.5`
+- 当前 digest：`sha256:b2bf2f865519c1f3648644e3b1aee90a68fcef21b5277aa19e6206b02a355e25`
+- 默认端口：`8282`
+
+---
+
+## Docker Compose 安装
+
+新建 `/opt/qudingtong` 目录，保存以下内容为 `docker-compose.yml`：
+
+```yaml
+services:
+  qudingtong:
+    image: xiaoluya/qudingtong:1.3.5@sha256:b2bf2f865519c1f3648644e3b1aee90a68fcef21b5277aa19e6206b02a355e25
+    container_name: qudingtong
+    user: "${QDT_UID:-1000}:${QDT_GID:-1000}"
+    restart: unless-stopped
+    ports:
+      - "8282:8282"
+    environment:
+      PORT: "8282"
+      TZ: "Asia/Shanghai"
+      NODE_ENV: "production"
+      WEB_CONCURRENCY: "4"
+      DATA_DIR: "/app/data"
+      QDT_DB_DIR: "/app/data"
+      QDT_SECURITY_DB_DIR: "/app/data/security"
+      QDT_BACKUP_DIR: "/app/backups"
+      BOOTSTRAP_ADMIN_USER: "admin"
+      BOOTSTRAP_ADMIN_PASSWORD: "${BOOTSTRAP_ADMIN_PASSWORD:?请在 .env 中设置管理员初始密码}"
+      SESSION_SECRET: "${SESSION_SECRET:-}"
+      QDT_BACKUP_PEPPER: "${QDT_BACKUP_PEPPER:-}"
+      QDT_AGENT_TOKEN: "${QDT_AGENT_TOKEN:-}"
+      QDT_SECURE_COOKIE: "0"
+    volumes:
+      - ./data:/app/data
+      - ./backups:/app/backups
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:8282/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+```
+
+同目录新建 `.env`：
+
+```ini
+BOOTSTRAP_ADMIN_USER=admin
+BOOTSTRAP_ADMIN_PASSWORD=请改成强密码
+SESSION_SECRET=请改成随机字符串
+QDT_BACKUP_PEPPER=请改成随机字符串
+QDT_AGENT_TOKEN=请改成随机字符串
+QDT_SECURE_COOKIE=0
+QDT_UID=1000
+QDT_GID=1000
+```
+
+初始化并启动：
 
 ```bash
 mkdir -p /opt/qudingtong/data/security /opt/qudingtong/backups
 cd /opt/qudingtong
-curl -O https://raw.githubusercontent.com/xiaolurenya/qudingtong/main/docker-compose.yml
-curl -O https://raw.githubusercontent.com/xiaolurenya/qudingtong/main/.env.example
-cp .env.example .env
-# 修改 .env 中的 BOOTSTRAP_ADMIN_PASSWORD
+# 将上面的 docker-compose.yml 与 .env 保存到当前目录
+docker compose pull
 docker compose up -d
+docker compose logs -f --tail=80
 ```
 
-访问 `http://服务器IP:8282`。首次启动后请立即修改默认管理员密码；生产环境建议启用 HTTPS 与 `QDT_SECURE_COOKIE=1`。升级后浏览器执行 `Ctrl+F5` 强制刷新。
-
-## 镜像与版本
+访问：
 
 ```text
-xiaoluya/qudingtong:1.3.5
-xiaoluya/qudingtong:latest
-digest 以公开仓 version.json 为准
+http://服务器IP:8282
 ```
 
-## 初始账号
+健康检查：
 
-系统首次启动会按 `.env` 中的 `BOOTSTRAP_ADMIN_PASSWORD` 创建管理员，并生成内置员工 / 演示账号。公开文档不提供固定口令；生产环境请在首次登录后修改所有初始凭据。
+```bash
+curl http://127.0.0.1:8282/api/health
+```
 
-## 数据与备份
+生产环境建议：
 
-- 主数据库：`./data/qudingtong.db`
-- 独立安全库：`./data/security/qudingtong-security.db`
-- 加密备份：`./backups`
-- 请勿执行 `docker compose down -v`
-- 备份恢复不会迁移授权码、设备指纹或会话，换机后需重新激活
+- 使用 Nginx / 宝塔反向代理并启用 HTTPS；
+- 启用 HTTPS 后设置 `QDT_SECURE_COOKIE=1`；
+- 首次登录立即修改管理员密码；
+- 升级后浏览器按 `Ctrl+F5` 强制刷新。
+
+---
+
+## 飞牛 NAS 安装包
+
+- [GitHub Releases / v1.3.5](https://github.com/xiaolurenya/qudingtong/releases/tag/v1.3.5)
+- 附件：`QudingTong-1.3.5-Feiniu.fpk`
+- 安装向导可设置管理员密码，默认端口 `8282`
+- 数据保存在套件 `data / backups` 目录，升级或重装不要删除
+
+---
+
+## 初始账号与数据
+
+- 首次启动会按 `.env` 中的 `BOOTSTRAP_ADMIN_PASSWORD` 创建 `admin`；
+- 公开文档不提供固定生产口令；请首次登录后立即修改；
+- 主数据库：`./data/qudingtong.db`；
+- 独立安全库：`./data/security/qudingtong-security.db`；
+- 加密备份：`./backups`；
+- **不要执行 `docker compose down -v`**。
+
+---
 
 ## 授权
 
 采用统一永久授权：后台「安全中心 / 授权信息」复制机器码并联系作者获取激活码。激活码使用 Ed25519 签名校验；官方公钥与授权服务地址内置，不接受环境变量或设置表覆盖；备份不包含授权码、设备指纹、会话和密钥材料。
 
+---
+
 ## 文档与仓库
 
 - [部署说明](docs/部署说明.md) · [宝塔部署](docs/宝塔部署.md)
 - 公开安装仓：<https://github.com/xiaolurenya/qudingtong>
+- 私有源码仓：`xiaolurenya/qudingtong-src`
 - Docker Hub：<https://hub.docker.com/r/xiaoluya/qudingtong>
 
 ---
 
-文档版本：1.3.5 · 重写实时数据大屏、AI 经营分析、账单财务明细、系统设置同步与动态路由稳定性说明。
+文档版本：1.3.5 · 实时数据大屏、AI 经营分析、账单财务明细、动态路由稳定性与系统设置同步。
