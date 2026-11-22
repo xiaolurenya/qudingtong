@@ -2,7 +2,7 @@
 
 > **批发订货 · 渠道报价 · 进销存 · 账单财务 · 实时数据大屏 · AI 经营分析 · 打印出单 一站式**
 
-![版本](https://img.shields.io/badge/version-1.3.5-blue) ![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange) ![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green) ![端口](https://img.shields.io/badge/port-8282-lightgrey)
+![版本](https://img.shields.io/badge/version-1.3.6-blue) ![类型](https://img.shields.io/badge/type-%E8%87%AA%E6%89%98%E7%AE%A1%E8%BF%9B%E9%94%80%E5%AD%98-orange) ![技术](https://img.shields.io/badge/stack-Node.js%2024%20%2F%20SQLite%20%2F%20SPA-green) ![端口](https://img.shields.io/badge/port-8282-lightgrey)
 
 渠订通是一套面向**批发商、渠道商、门店和售后网点**的自托管业务系统。它把客户报价、购物车下单、后台开单、库存采购、退货审核、账单财务、往来明细、打印出单、实时经营大屏、AI 经营分析和数据安全放进同一套系统里，用私有部署和统一永久授权替代分散的 Excel、微信群和手工对账。
 
@@ -44,8 +44,8 @@
 ## 镜像与版本
 
 - Docker Hub：<https://hub.docker.com/r/xiaoluya/qudingtong>
-- 固定版本：`xiaoluya/qudingtong:1.3.5`
-- 当前 digest：`sha256:b2bf2f865519c1f3648644e3b1aee90a68fcef21b5277aa19e6206b02a355e25`
+- 固定版本：`xiaoluya/qudingtong:1.3.6`
+- 当前 digest：`sha256:41c662606eaa2093254446651b83dd8db277ecfa4e6c60f09cbfb342be31a5fe`
 - 默认端口：`8282`
 
 ---
@@ -57,7 +57,7 @@
 ```yaml
 services:
   qudingtong:
-    image: xiaoluya/qudingtong:1.3.5@sha256:b2bf2f865519c1f3648644e3b1aee90a68fcef21b5277aa19e6206b02a355e25
+    image: xiaoluya/qudingtong:1.3.6@sha256:41c662606eaa2093254446651b83dd8db277ecfa4e6c60f09cbfb342be31a5fe
     container_name: qudingtong
     user: "${QDT_UID:-1000}:${QDT_GID:-1000}"
     restart: unless-stopped
@@ -136,8 +136,8 @@ curl http://127.0.0.1:8282/api/health
 
 ## 飞牛 NAS 安装包
 
-- [GitHub Releases / v1.3.5](https://github.com/xiaolurenya/qudingtong/releases/tag/v1.3.5)
-- 附件：`QudingTong-1.3.5-Feiniu.fpk`
+- [GitHub Releases / v1.3.6](https://github.com/xiaolurenya/qudingtong/releases/tag/v1.3.6)
+- 附件：`QudingTong-1.3.6-Feiniu.fpk`
 - 安装向导可设置管理员密码，默认端口 `8282`
 - 数据保存在套件 `data / backups` 目录，升级或重装不要删除
 
@@ -169,4 +169,4 @@ curl http://127.0.0.1:8282/api/health
 
 ---
 
-文档版本：1.3.5 · 实时数据大屏、AI 经营分析、账单财务明细、动态路由稳定性与系统设置同步。
+文档版本：1.3.6 · 实时数据大屏、AI 经营分析、账单财务明细、动态路由稳定性与系统设置同步。
