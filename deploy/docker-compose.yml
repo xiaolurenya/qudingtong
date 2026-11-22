@@ -1,6 +1,6 @@
 services:
   qudingtong:
-    image: xiaoluya/qudingtong:1.3.6@sha256:41c662606eaa2093254446651b83dd8db277ecfa4e6c60f09cbfb342be31a5fe
+    image: xiaoluya/qudingtong:1.3.7@sha256:5516d858b14efba6757febd75fa23ce6c78fa979a5774e38598f824c6f7665ba
     container_name: qudingtong
     user: "${QDT_UID:-1000}:${QDT_GID:-1000}"
     restart: unless-stopped
